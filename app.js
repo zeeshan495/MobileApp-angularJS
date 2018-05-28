@@ -1,11 +1,16 @@
-var app = angular.module("loginApp",['ui.router'],['ng-material']);
-app.config(function($stateProvider,$urlRouterProvider)
+var app = angular.module('myApp',['ui.router','ngMaterial']);
+app.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider)
 {
   $stateProvider
   .state('login',{
     url : '/login',
     templateUrl : 'templates/Login.html',
     controller : 'loginCtrl'
+  })
+  .state('home',{
+    url : '/home',
+    templateUrl : 'templates/Toolbar.html',
+    controller : 'homeCtrl'
   });
-  $urlRouterProvider.otherwise('login');
-});
+  $urlRouterProvider.otherwise('/login');
+}]);

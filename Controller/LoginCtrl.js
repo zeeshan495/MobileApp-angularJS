@@ -1,4 +1,7 @@
-app.controller('loginCtrl',function($scope)
+app.controller('loginCtrl',function($scope,$state)
 {
-  console.log("login");
+  console.log("inside loginCtrl");
+  $scope.submit = function(){
+    $state.go('home');
+  }
 });
