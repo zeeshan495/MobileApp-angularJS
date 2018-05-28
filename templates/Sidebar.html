@@ -1,0 +1,21 @@
+<div layout="column" style="height: 500px;" ng-cloak>
+
+  <section layout="row" flex>
+
+    <md-sidenav class="md-sidenav-left" style="margin-top:63px" md-component-id="left" md-disable-backdrop md-whiteframe="4">
+      <md-toolbar class="md-theme-indigo" layout="row">
+        <h1 class="md-toolbar-tools">Side Bar</h1>
+      </md-toolbar>
+      <div>
+        <h3>Brand</h3>
+      <ul>
+  <li ng-repeat="x in myData">
+
+    {{ x.specs.manufacturer }}
+  </li>
+</ul>
+</div>
+    </md-sidenav>
+  </section>
+
+</div>

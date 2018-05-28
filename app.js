@@ -1,4 +1,4 @@
-var app = angular.module('myApp',['ui.router','ngMaterial']);
+var app = angular.module('myApp',['ui.router','ngMaterial','ngMessages','ngAnimate']);
 app.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider)
 {
   $stateProvider
@@ -9,7 +9,7 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRo
   })
   .state('home',{
     url : '/home',
-    templateUrl : 'templates/Toolbar.html',
+    templateUrl : 'templates/Home.html',
     controller : 'homeCtrl'
   });
   $urlRouterProvider.otherwise('/login');

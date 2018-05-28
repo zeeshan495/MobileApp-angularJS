@@ -7,8 +7,8 @@
           <label>Email</label>
           <input name="mail" type="email" ng-model="user.email" ng-pattern="/^[a-zA-Z]+[a-zA-Z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" required/>
           <div ng-messages="Form.mail.$error">
-            <div ng-message="required">Your email is required.</div>
             <div ng-message="pattern">invalid email</div>
+            <div ng-message="required">Your email is required.</div>
           </div>
         </md-input-container><br>
       </md-card-content>
