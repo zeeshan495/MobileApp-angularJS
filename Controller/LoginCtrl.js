@@ -6,8 +6,8 @@ app.controller('loginCtrl',function($scope,$state)
     if ($scope.user.email==null||$scope.user.password==null) {
       $state.go('login');
     }
-else {
-$state.go('home');
-}
+    else {
+          $state.go('home');
+          }
   }
 });

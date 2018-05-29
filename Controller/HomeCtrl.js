@@ -1,7 +1,7 @@
 app.controller('homeCtrl',function ($scope,$mdSidenav,$http) {
   console.log("inside homeCtrl");
   $scope.toggleLeft = buildToggler('left');
-  $http.get("Assets/products.json").then(function (response) {
+  $http.get("assets/products.json").then(function (response) {
       $scope.myData = response.data;
       return $scope.myData;
   });
@@ -13,12 +13,3 @@ app.controller('homeCtrl',function ($scope,$mdSidenav,$http) {
   }
 
 });
-// app.controller('sidebarCtrl',function ($scope, $mdSidenav) {
-//     $scope.toggleLeft = buildToggler('left');
-//
-//     function buildToggler(componentId) {
-//       return function() {
-//         $mdSidenav(componentId).toggle();
-//       };
-//     }
-//   });

@@ -1,20 +1,45 @@
-<div layout="column" style="height: 500px;" ng-cloak>
+<div  ng-cloak>
 
-  <section layout="row" flex>
+  <section layout="row" >
 
     <md-sidenav class="md-sidenav-left" style="margin-top:63px" md-component-id="left" md-disable-backdrop md-whiteframe="4">
       <md-toolbar class="md-theme-indigo" layout="row">
-        <h1 class="md-toolbar-tools">Side Bar</h1>
+        <h1 class="md-toolbar-tools">Menu</h1>
       </md-toolbar>
       <div>
-        <h3>Brand</h3>
-      <ul>
-  <li ng-repeat="x in myData">
-
-    {{ x.specs.manufacturer }}
-  </li>
-</ul>
-</div>
+        <fieldset class="standard">
+          <h3> Brand</h3>
+          <ul>
+            <li ng-repeat="data in myData | deleteDuplicate: 'manufacturer'">
+              <md-checkbox> {{ data }}</md-checkbox>
+            </li>
+          </ul>
+        </fieldset>
+        <fieldset>
+          <h3> OS</h3>
+          <ul>
+            <li ng-repeat="data in myData | deleteDuplicate: 'os'">
+              <md-checkbox> {{ data }}</md-checkbox>
+            </li>
+          </ul>
+        </fieldset>
+        <fieldset>
+          <h3> Camera</h3>
+          <ul>
+            <li ng-repeat="data in myData | deleteDuplicate: 'camera'">
+              <md-checkbox> {{ data }}</md-checkbox>
+            </li>
+          </ul>
+        </fieldset>
+        <fieldset>
+          <h3> Storage</h3>
+          <ul>
+            <li ng-repeat="data in myData | deleteDuplicate: 'storage'">
+              <md-checkbox> {{ data }}</md-checkbox>
+            </li>
+          </ul>
+        </fieldset>
+      </div>
     </md-sidenav>
   </section>
 
