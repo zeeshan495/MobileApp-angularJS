@@ -1,8 +1,8 @@
 
-<div  class="mobilecard"   layout="row" layout-padding layout-wrap>
-<div ng-repeat="data in myData" flex-xs flex-gt-xs="30" layout="row">
+<div   class="mobilecard"   layout="row" layout-padding layout-wrap>
+<div ng-repeat="data in myData"  flex-gt-xs="30" flex-xs layout="row">
       <md-card   ><br><br><br>
-        <img ng-src={{data.image.large}} class="md-card-image" alt="Washed Out">
+        <img ng-src={{data.image.small}} class="md-card-image" alt="Washed Out">
         <md-card-title>
           <md-card-title-text>
             <span class="md-headline">{{data.name}}</span>
@@ -15,7 +15,7 @@
         <h><strong>camera : </strong>{{data.specs.camera}} MP</h>
 
         <md-card-actions layout="row" layout-align="start center">
-          <md-button class="md-primary md-raised" ng-click="showAlert(data.description)" >
+          <md-button ng-click="showAdvanced($state,data)" class="md-primary md-raised"  >
       Description
     </md-button>
         </md-card-actions>
@@ -23,5 +23,3 @@
 </div>
 
 </div>
-
-<!-- {{data.description}} -->
