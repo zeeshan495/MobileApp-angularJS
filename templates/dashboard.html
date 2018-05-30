@@ -1,7 +1,27 @@
-<div >
-  <md-card style="width:25%" layout="row" flex-md=40 flex-sm=60 flex-xs=80>
-    <md-card-content>
-      <h2> Mobile</h2>
-    </md-card-content>
-  </md-card>
+
+<div  class="mobilecard"   layout="row" layout-padding layout-wrap>
+<div ng-repeat="data in myData" flex-xs flex-gt-xs="30" layout="row">
+      <md-card   ><br><br><br>
+        <img ng-src={{data.image.large}} class="md-card-image" alt="Washed Out">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{data.name}}</span>
+          </md-card-title-text>
+        </md-card-title>
+
+        <h><strong>Price : </strong> $ {{data.price}}</h>
+        <h><strong>Storage : </strong>{{data.specs.storage}} GB</h>
+        <h><strong>os : </strong>{{data.specs.os}}</h>
+        <h><strong>camera : </strong>{{data.specs.camera}} MP</h>
+
+        <md-card-actions layout="row" layout-align="start center">
+          <md-button class="md-primary md-raised" ng-click="showAlert(data.description)" >
+      Description
+    </md-button>
+        </md-card-actions>
+      </md-card>
 </div>
+
+</div>
+
+<!-- {{data.description}} -->
