@@ -20,10 +20,10 @@ app.controller('homeCtrl',function ($scope,$mdSidenav,$http,$mdDialog) {
       $mdSidenav(componentId).toggle();
     };
   }
-function DialogController($scope, item) {
-$scope.item=item;
+  function DialogController($scope, item) {
+    $scope.item=item;
     $scope.cancel = function() {
-      $mdDialog.cancel();
+    $mdDialog.cancel();
     };
 }
 });
