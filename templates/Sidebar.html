@@ -10,7 +10,7 @@
           <h3> Brand</h3>
           <ul>
             <li ng-repeat="data in myData | deleteDuplicate: 'manufacturer'">
-              <md-checkbox> {{ data }}</md-checkbox>
+              <md-checkbox ng-click="filterFunction(data)"> {{ data }}</md-checkbox>
             </li>
           </ul>
         </fieldset>
