@@ -4,6 +4,27 @@ app.controller('homeCtrl', function($scope, $mdSidenav, $http, $mdDialog) {
 
   $http.get("assets/products.json").then(function(response) {
     $scope.myData = response.data;
+
+  $scope.manufacturerArray = [];
+  $scope.osArray = [];
+  $scope.cameraArray = [];
+  $scope.storageArray = [];
+  $scope.toggle = function (item, list) {
+
+        var idx = list.indexOf(item);
+        if (idx > -1) {
+          list.splice(idx, 1);
+        }
+        else {
+          list.push(item);
+        }
+        console.log(list);
+      };
+
+      $scope.exists = function (item, list) {
+        return list.indexOf(item) > -1;
+      };
+
   });
   $scope.showAdvanced = function(ev, data) {
     $mdDialog.show({
@@ -20,7 +41,7 @@ app.controller('homeCtrl', function($scope, $mdSidenav, $http, $mdDialog) {
 
   function buildToggler(componentId) {
     return function() {
-      $mdSidenav(componentId).toggle();
+      $mdSidenav(componentId).toggle();$scope.tempArray
     };
   }
 
@@ -31,23 +52,5 @@ app.controller('homeCtrl', function($scope, $mdSidenav, $http, $mdDialog) {
     };
   }
 
-  // function homeCtrl($scope) {
-  //   $scope.tempArray=[];
-  //   $scope.filterFunction=function(specs.manufacturer){
-  //      var i = $.inArray(specs.manufacturer, $scope.tempArray);
-  //      if (i > -1) {
-  //          $scope.tempArray.splice(i, 1);
-  //      } else {
-  //          $scope.tempArray.push(specs.manufacturer);
-  //      }
-  //   }
-  //   $scope.brandFilter = function(myData) {
-  //       if ($scope.tempArray.length > 0) {
-  //           if ($.inArray(myData.specs.manufacturer, $scope.tempArray) < 0)
-  //               return;
-  //       }
-  //
-  //       return myData;
-  //
-  // }
+
 });
