@@ -1,10 +1,8 @@
-app.controller('homeCtrl', function($scope, $mdSidenav, $http, $mdDialog) {
+app.controller('homeCtrl', function($scope, $mdSidenav, $http, $mdDialog, $state) {
   console.log("inside homeCtrl");
-  $scope.toggleLeft = buildToggler('left');
 
   $http.get("assets/products.json").then(function(response) {
     $scope.myData = response.data;
-
     $scope.manufacturerArray = [];
     $scope.osArray = [];
     $scope.cameraArray = [];
@@ -33,13 +31,24 @@ app.controller('homeCtrl', function($scope, $mdSidenav, $http, $mdDialog) {
     });
   }
 
+  $scope.toggleLeft = buildToggler('left');
   function buildToggler(componentId) {
     return function() {
-      $mdSidenav(componentId).toggle();
-      $scope.tempArray
+    $mdSidenav(componentId).toggle();
+    if ($scope.myobj==undefined) {
+$scope.myobj={
+      "margin-left":"320px"
+    }
+    }
+    else {
+      $scope.myobj=undefined;
+    }
     };
   }
-
+  $scope.toggleright=function()
+  {
+    $state.go('login');
+  }
   function DialogController($scope, item) {
     $scope.item = item;
     $scope.cancel = function() {

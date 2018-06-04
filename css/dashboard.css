@@ -3,10 +3,15 @@
   width: 100%;
   height: 95%;
   cursor: pointer;
+
 }
 .mobilecard:hover
 {
   opacity: 0.65;
+}
+.dashboard{
+  margin-top: 65px;
+  margin-left: 100px;
 }
 .md-card-image {
   width: 250px;
@@ -25,4 +30,8 @@
   display:block;
   margin-left:auto;
   margin-right: auto;
+}
+
+.rating{
+  margin-left: 850px;
 }

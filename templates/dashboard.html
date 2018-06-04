@@ -1,6 +1,6 @@
-<div layout="row" layout-padding layout-wrap>
+<div class="dashboard" ng-style="myobj" layout="row" layout-padding layout-wrap>
   <md-content ng-repeat="data in myData | myFilter :manufacturerArray :osArray :cameraArray :storageArray" flex-gt-xs="30" flex-xs layout="row">
-    <md-card class="mobilecard"><br><br><br>
+    <md-card class="mobilecard">
 
       <img ng-src={{data.image.small}} class="md-card-image" alt="Washed Out">
       <span style="text-align:center;" class="md-headline">{{data.name}}</span>
@@ -14,6 +14,9 @@
       <md-card-actions layout="row" layout-align="start center">
         <md-button ng-click="showAdvanced($state,data)" class="md-primary md-raised">
           Description
+        </md-button>
+        <md-button ng-click="addcart($state,data)" class="md-primary md-raised">
+          add cart
         </md-button>
       </md-card-actions>
     </md-card>
