@@ -2,23 +2,26 @@ app.filter('myFilter', function() {
   return function(totalData, manufacturerArray, osArray, cameraArray, storageArray) {
     var tempArr = [];
     var filteredArr = [];
+    if(totalData!=undefined){
     tempArr = totalData;
     //for manufacturer
-    for (i = 0; i < tempArr.length; i++) {
+    for (var i = 0; i < tempArr.length; i++) {
       var element = tempArr[i];
-      for (j = 0; j < manufacturerArray.length; j++) {
+      for (var j = 0; j < manufacturerArray.length; j++) {
         var selected = manufacturerArray[j];
         if (element.specs.manufacturer == selected) {
           filteredArr.push(element);
         }
       }
     }
+    //if filteredArr have a data then tempArr collect those data
     if (filteredArr.length > 0) {
       tempArr = filteredArr;
     }
 
     //for OS
     filteredArr = [];
+    if (osArray.length>0) {
     for (i = 0; i < tempArr.length; i++) {
       var element = tempArr[i];
       for (j = 0; j < osArray.length; j++) {
@@ -28,12 +31,12 @@ app.filter('myFilter', function() {
         }
       }
     }
-    if (filteredArr.length > 0) {
       tempArr = filteredArr;
-    }
+ }
 
     //for camera
     filteredArr = [];
+      if (cameraArray.length>0) {
     for (i = 0; i < tempArr.length; i++) {
       var element = tempArr[i];
       for (j = 0; j < cameraArray.length; j++) {
@@ -43,12 +46,12 @@ app.filter('myFilter', function() {
         }
       }
     }
-    if (filteredArr.length > 0) {
       tempArr = filteredArr;
     }
 
     //for storage
     filteredArr = [];
+      if (storageArray.length>0) {
     for (i = 0; i < tempArr.length; i++) {
       var element = tempArr[i];
       for (j = 0; j < storageArray.length; j++) {
@@ -58,10 +61,9 @@ app.filter('myFilter', function() {
         }
       }
     }
-    if (filteredArr.length > 0) {
       tempArr = filteredArr;
     }
-
+}
     return tempArr;
   }
 });

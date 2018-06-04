@@ -9,7 +9,7 @@
           <h3> Brand</h3>
           <ul>
             <li ng-repeat="data in myData | deleteDuplicate: 'manufacturer'">
-              <md-checkbox ng-checked="exists(data, manufacturerArray)" ng-click="toggle(data, manufacturerArray)"> {{ data }}</md-checkbox>
+              <md-checkbox  ng-click="toggle(data, manufacturerArray)"> {{ data }}</md-checkbox>
             </li>
           </ul>
         </fieldset>
@@ -17,7 +17,7 @@
           <h3> OS</h3>
           <ul>
             <li ng-repeat="data in myData | deleteDuplicate: 'os'">
-              <md-checkbox ng-checked="exists(data, osArray)" ng-click="toggle(data, osArray)">{{ data }}</md-checkbox>
+              <md-checkbox  ng-click="toggle(data, osArray)">{{ data }}</md-checkbox>
             </li>
           </ul>
         </fieldset>
@@ -25,7 +25,7 @@
           <h3> Camera</h3>
           <ul>
             <li ng-repeat="data in myData | deleteDuplicate: 'camera'">
-              <md-checkbox ng-checked="exists(data, cameraArray)" ng-click="toggle(data, cameraArray)"> {{ data }}</md-checkbox>
+              <md-checkbox  ng-click="toggle(data, cameraArray)"> {{ data }}</md-checkbox>
             </li>
           </ul>
         </fieldset>
@@ -33,7 +33,7 @@
           <h3> Storage</h3>
           <ul>
             <li ng-repeat="data in myData | deleteDuplicate: 'storage'">
-              <md-checkbox ng-checked="exists(data, storageArray)" ng-click="toggle(data, storageArray)"> {{ data }}</md-checkbox>
+              <md-checkbox  ng-click="toggle(data, storageArray)"> {{ data }}</md-checkbox>
             </li>
           </ul>
         </fieldset>

@@ -1,23 +1,22 @@
+<div layout="row" layout-padding layout-wrap>
+  <md-content ng-repeat="data in myData | myFilter :manufacturerArray :osArray :cameraArray :storageArray" flex-gt-xs="30" flex-xs layout="row">
+    <md-card class="mobilecard"><br><br><br>
 
-<div      layout="row" layout-padding layout-wrap>
-<md-content ng-repeat="data in myData | myFilter :manufacturerArray :osArray :cameraArray :storageArray"  flex-gt-xs="30" flex-xs layout="row">
-      <md-card  class="mobilecard" ><br><br><br>
+      <img ng-src={{data.image.small}} class="md-card-image" alt="Washed Out">
+      <span style="text-align:center;" class="md-headline">{{data.name}}</span>
 
-        <img ng-src={{data.image.small}} class="md-card-image" alt="Washed Out">
-        <span style="text-align:center;" class="md-headline">{{data.name}}</span>
-
-<p class="details" >
-        <h ><strong> Price : </strong>  {{data.price}}</h><br>
-      <h><strong>Storage : </strong>{{data.specs.storage}} GB</h><br>
+      <p class="details">
+        <h><strong> Price : </strong> {{data.price}}</h><br>
+        <h><strong>Storage : </strong>{{data.specs.storage}} GB</h><br>
         <h><strong>os : </strong>{{data.specs.os}}</h><br>
         <h><strong>camera : </strong>{{data.specs.camera}} MP</h><br>
-</p>
-        <md-card-actions layout="row" layout-align="start center">
-          <md-button ng-click="showAdvanced($state,data)" class="md-primary md-raised"  >
-      Description
-    </md-button>
-        </md-card-actions>
-      </md-card>
-</md-content>
+      </p>
+      <md-card-actions layout="row" layout-align="start center">
+        <md-button ng-click="showAdvanced($state,data)" class="md-primary md-raised">
+          Description
+        </md-button>
+      </md-card-actions>
+    </md-card>
+  </md-content>
 
 </div>

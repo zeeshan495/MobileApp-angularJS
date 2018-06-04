@@ -5,32 +5,26 @@ app.controller('homeCtrl', function($scope, $mdSidenav, $http, $mdDialog) {
   $http.get("assets/products.json").then(function(response) {
     $scope.myData = response.data;
 
-  $scope.manufacturerArray = [];
-  $scope.osArray = [];
-  $scope.cameraArray = [];
-  $scope.storageArray = [];
-  $scope.toggle = function (item, list) {
-
-        var idx = list.indexOf(item);
-        if (idx > -1) {
-          list.splice(idx, 1);
-        }
-        else {
-          list.push(item);
-        }
-        console.log(list);
-      };
-
-      $scope.exists = function (item, list) {
-        return list.indexOf(item) > -1;
-      };
-
+    $scope.manufacturerArray = [];
+    $scope.osArray = [];
+    $scope.cameraArray = [];
+    $scope.storageArray = [];
+    $scope.toggle = function(item, list) {
+      var indx = list.indexOf(item);
+      if (indx > -1) {
+        list.splice(indx, 1);
+      } else {
+        list.push(item);
+      }
+      console.log(list);
+    };
   });
+
   $scope.showAdvanced = function(ev, data) {
     $mdDialog.show({
       controller: DialogController,
       templateUrl: 'templates/popup.html',
-      parent: angular.element(document.body),
+      // parent: angular.element(document.body),
       targetEvent: ev,
       locals: {
         item: data
@@ -41,7 +35,8 @@ app.controller('homeCtrl', function($scope, $mdSidenav, $http, $mdDialog) {
 
   function buildToggler(componentId) {
     return function() {
-      $mdSidenav(componentId).toggle();$scope.tempArray
+      $mdSidenav(componentId).toggle();
+      $scope.tempArray
     };
   }
 
@@ -51,6 +46,5 @@ app.controller('homeCtrl', function($scope, $mdSidenav, $http, $mdDialog) {
       $mdDialog.cancel();
     };
   }
-
 
 });
