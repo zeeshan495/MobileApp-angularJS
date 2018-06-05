@@ -16,13 +16,13 @@ app.controller('homeCtrl', function($scope, $mdSidenav, $http, $mdDialog, $state
       }
       console.log(list);
     };
+
   });
 
   $scope.showAdvanced = function(ev, data) {
     $mdDialog.show({
       controller: DialogController,
       templateUrl: 'templates/popup.html',
-      // parent: angular.element(document.body),
       targetEvent: ev,
       locals: {
         item: data
@@ -36,7 +36,7 @@ app.controller('homeCtrl', function($scope, $mdSidenav, $http, $mdDialog, $state
     return function() {
     $mdSidenav(componentId).toggle();
     if ($scope.myobj==undefined) {
-$scope.myobj={
+      $scope.myobj={
       "margin-left":"320px"
     }
     }
@@ -55,5 +55,13 @@ $scope.myobj={
       $mdDialog.cancel();
     };
   }
+$scope.cart=function(){
+  $state.go('cart');
+}
+
+ $scope.count=0;
+
+
+
 
 });

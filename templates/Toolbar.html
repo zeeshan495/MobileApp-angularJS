@@ -5,8 +5,8 @@
         <md-icon md-svg-icon="css/icons8-menu.svg"></md-icon>
       </md-button>
       <h2 flex md-truncate>Mobile Shopping</h2>
-      <md-button ng-click="cart()" class="md-icon-button md-primary md-raised">
-        <md-icon md-svg-icon="css/iconmonstr-shopping-cart-3.svg"></md-icon>
+      <md-button ng-click="cart()" class=" md-primary md-raised">
+        <md-icon md-svg-icon="css/iconmonstr-shopping-cart-3.svg">{{cartArr.length}}</md-icon>
       </md-button>
       <md-button ng-click="toggleright()" class="md-primary md-raised">
         Logout
