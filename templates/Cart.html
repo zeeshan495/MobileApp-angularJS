@@ -11,7 +11,7 @@
   </div>
   <div class="" layout="row" layout-padding layout-wrap>
     <md-card class="cart">
-      <md-content ng-repeat="data in myData | cartfilter : arrayOfCart" flex-xs layout="row">
+      <md-content ng-repeat="data in cartobject " flex-xs layout="row">
 
         <img ng-src={{data.image.small}} class="md-card-image" alt="Washed Out">
         <span style="text-align:center;" class="md-headline">{{data.name}}</span>

@@ -1,4 +1,4 @@
-app.service('filterService', function() {
+app.service('filterService', function($rootScope) {
     this.myFunc = function (featureArray,tempArr) {
       var filteredArr=[];
 
@@ -15,8 +15,21 @@ app.service('filterService', function() {
       }
     }
     tempArr = filteredArr;
-
     return tempArr;
 
+    }
+
+    this.readData=function(){
+      cartArr=localStorage.getItem("testJSON");
+       cartobject=JSON.parse(cartArr);
+     if (cartobject==null) {
+       $rootScope.arrayOfCart=[];
+      var  myJSON = JSON.stringify($rootScope.arrayOfCart);
+        localStorage.setItem("testJSON", myJSON);
+        var cartArr=localStorage.getItem("testJSON");
+        $rootScope.arrayOfCart=JSON.parse("cartArr");
+        return $rootScope.arrayOfCart;
+      }
+      return cartobject;
     }
 });

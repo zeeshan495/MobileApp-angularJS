@@ -1,17 +1,28 @@
-var dashCtrl = function($scope,$rootScope,$state,$http,$q)
+var dashCtrl = function($scope,$rootScope,$state,$http,$q,filterService)
 {
   $rootScope.arrayOfCart = [];
 
   $http.get("assets/products.json").then(function(response) {
         $rootScope.myData = response.data;
-        myJSON = JSON.stringify($rootScope.myData);
-        localStorage.setItem("testJSON", myJSON);
+        // myJSON = JSON.stringify($rootScope.myData);
+        // localStorage.setItem("testJSON", myJSON);
     });
 
     $scope.addcart = function(cartdata) {
-      $rootScope.arrayOfCart.push(cartdata);
-      console.log("inside dashboardctrl push completed");
-      // console.log("cartArr: ",arrayOfCart);
+
+    var  cartobject= filterService.readData();
+      if (cartobject.length==0) {
+        cartobject.push(cartdata);
+        console.log("push 1");
+        var  myJSON = JSON.stringify(cartobject);
+          localStorage.setItem("testJSON", myJSON);
+      }else if (cartobject.includes("cartdata")==false) {
+          console.log("push 2");
+      cartobject.push(cartdata);
+      }
+        var  myJSON = JSON.stringify(cartobject);
+          localStorage.setItem("testJSON", myJSON);
+
     };
 
 };
