@@ -10,7 +10,7 @@
       "camera": 15
     },
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique ipsum in efficitur pharetra. Maecenas luctus ante in neque maximus, sed viverra sem posuere. Vestibulum lectus nisi, laoreet vel suscipit nec, feugiat at odio. Etiam eget tellus arcu.",
-    "rating": 4,
+    "rating": 3,
     "image": {
       "small": "assets/images/Sony.png",
       "large": "assets/images/sony-xperia-z3-large.jpg"
@@ -44,7 +44,7 @@
       "camera": 5
     },
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique ipsum in efficitur pharetra. Maecenas luctus ante in neque maximus, sed viverra sem posuere. Vestibulum lectus nisi, laoreet vel suscipit nec, feugiat at odio. Etiam eget tellus arcu.",
-    "rating": 4,
+    "rating": 3,
     "image": {
       "small": "assets/images/htc.png",
       "large": "assets/images/htc-one-large.jpg"
@@ -78,7 +78,7 @@
       "camera": 5
     },
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique ipsum in efficitur pharetra. Maecenas luctus ante in neque maximus, sed viverra sem posuere. Vestibulum lectus nisi, laoreet vel suscipit nec, feugiat at odio. Etiam eget tellus arcu.",
-    "rating": 4,
+    "rating": 3,
     "image": {
       "small": "assets/images/Nokia.png",
       "large": "assets/images/nokia-lumia-large.jpg"
@@ -95,7 +95,7 @@
       "camera": 12
     },
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique ipsum in efficitur pharetra. Maecenas luctus ante in neque maximus, sed viverra sem posuere. Vestibulum lectus nisi, laoreet vel suscipit nec, feugiat at odio. Etiam eget tellus arcu.",
-    "rating": 4,
+    "rating": 2,
     "image": {
       "small": "assets/images/Zie.png",
       "large": "assets/images/zte-nubia-large.jpg"
@@ -112,7 +112,7 @@
       "camera": 15
     },
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique ipsum in efficitur pharetra. Maecenas luctus ante in neque maximus, sed viverra sem posuere. Vestibulum lectus nisi, laoreet vel suscipit nec, feugiat at odio. Etiam eget tellus arcu.",
-    "rating": 4,
+    "rating": 2,
     "image": {
       "small": "assets/images/samsung.png",
       "large": "assets/images/galaxy-s5-large.jpg"

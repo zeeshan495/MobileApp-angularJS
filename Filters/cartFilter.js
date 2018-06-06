@@ -14,7 +14,7 @@ app.filter('cartfilter', function() {
         for ( j = 0; j < cartArr.length; j++) {
           var selected = cartArr[j];
           console.log("inside for loop");
-          if (element == selected)
+          if (element.id == selected.id)
           {
               filteredArr.push(element);
               console.log("inside if condition");
@@ -23,6 +23,8 @@ app.filter('cartfilter', function() {
   }
 }
 tempArr = filteredArr;
+
+console.log("tempArr",tempArr);
 return tempArr;
 }
 });

@@ -1,4 +1,4 @@
-var app = angular.module('myApp',['ui.router','ngMaterial','ngMessages','ngAnimate']);
+var app = angular.module('myApp',['ui.router','ngMaterial','ngMessages','ngAnimate','jkAngularRatingStars']);
 app.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider)
 {
   $stateProvider
