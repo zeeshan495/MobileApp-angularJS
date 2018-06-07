@@ -1,36 +1,37 @@
-var dashCtrl = function($scope,$rootScope,$state,$http,$q,filterService)
-{
+var dashCtrl = function($scope, $rootScope, $state, $http, $q, filterService) {
   $rootScope.arrayOfCart = [];
 
   $http.get("assets/products.json").then(function(response) {
-        $rootScope.myData = response.data;
-        // myJSON = JSON.stringify($rootScope.myData);
-        // localStorage.setItem("testJSON", myJSON);
-    });
+    $rootScope.myData = response.data;
+  });
 
-    $scope.addcart = function(cartdata) {
-
-    var  cartobject= filterService.readData();
-      if (cartobject.length==0) {
-        cartobject.push(cartdata);
-        console.log("push 1");
-        var  myJSON = JSON.stringify(cartobject);
-          localStorage.setItem("testJSON", myJSON);
-      }else if (cartobject.includes("cartdata")==false) {
-          console.log("push 2");
+  $scope.addcart = function(cartdata) {
+    var cartobject = filterService.readData();
+    if (cartobject.length == 0) {
       cartobject.push(cartdata);
-      }
-        var  myJSON = JSON.stringify(cartobject);
-          localStorage.setItem("testJSON", myJSON);
 
-    };
+      var myJSON = JSON.stringify(cartobject);
+      localStorage.setItem("testJSON", myJSON);
+    } else {
+      for (var i = 0; i < cartobject.length; i++) {
+        if (cartobject[i].id == cartdata.id) {
+          return;
+        }
+      }
+      cartobject.push(cartdata);
+    }
+    var myJSON = JSON.stringify(cartobject);
+    localStorage.setItem("testJSON", myJSON);
+    console.log("cartobject length", cartobject.length)
+    $rootScope.count = cartobject.length;
+  };
 
 };
 app.controller('dashboardctrl', dashCtrl);
 
- // function exe(a,b,cb) {
- //   cb(a,b);
- // }
+// function exe(a,b,cb) {
+//   cb(a,b);
+// }
 //
 // function exe(a,b,cb) {
 //   return new Promise(function(resolve, reject) {

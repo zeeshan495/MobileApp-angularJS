@@ -5,16 +5,16 @@ app.filter('myFilter', function(filterService) {
     if (totalData != undefined) {
       tempArr = totalData;
 
-    if (manufacturerArray.length > 0) {
+    if (manufacturerArray!=undefined && manufacturerArray.length > 0) {
       tempArr=filterService.myFunc(manufacturerArray,tempArr);
     }
-    if (osArray.length > 0) {
+    if (osArray!=undefined && osArray.length > 0) {
       tempArr=filterService.myFunc(osArray,tempArr);
     }
-    if (cameraArray.length > 0) {
+    if (cameraArray!=undefined && cameraArray.length > 0) {
       tempArr=filterService.myFunc(cameraArray,tempArr);
     }
-    if (storageArray.length > 0) {
+    if (storageArray!=undefined && storageArray.length > 0) {
       tempArr=filterService.myFunc(storageArray,tempArr);
     }
 if (tempArr.length==0) {

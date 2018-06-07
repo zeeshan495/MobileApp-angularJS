@@ -16,7 +16,6 @@ app.service('filterService', function($rootScope) {
     }
     tempArr = filteredArr;
     return tempArr;
-
     }
 
     this.readData=function(){
@@ -27,9 +26,12 @@ app.service('filterService', function($rootScope) {
       var  myJSON = JSON.stringify($rootScope.arrayOfCart);
         localStorage.setItem("testJSON", myJSON);
         var cartArr=localStorage.getItem("testJSON");
-        $rootScope.arrayOfCart=JSON.parse("cartArr");
+        $rootScope.arrayOfCart=JSON.parse(cartArr);
+        // localStorage.setItem("cartArr length", arrayOfCart.length);
         return $rootScope.arrayOfCart;
       }
+
+
       return cartobject;
     }
 });

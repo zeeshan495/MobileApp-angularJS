@@ -1,3 +1,32 @@
-.cart{
+.cartboard{
   margin-top: 65px;
+  position: absolute;
+}
+.cart-card-image {
+  width: 140px;
+  height: 100px;
+  /*display:block;
+  margin-left:auto;
+  margin-right: auto;*/
+}
+.toolbarcart{
+  margin-top: 0px;
+  /*position: fixed;*/
+    position: relative;
+}
+table {
+    border-collapse: collapse;
+    width: 60%;
+}
+
+th,td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    /*height: 120px;
+    width: 130px;*/
+}
+
+.cart{
+  width: 140px;
 }

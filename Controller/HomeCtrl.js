@@ -1,4 +1,4 @@
-app.controller('homeCtrl', function($scope, $mdSidenav, $http, $mdDialog, $state) {
+app.controller('homeCtrl', function($scope, $mdSidenav, $http, $mdDialog, $state,$rootScope) {
   console.log("inside homeCtrl");
   text = localStorage.getItem("testJSON");
   obj = JSON.parse(text);
@@ -61,6 +61,6 @@ $scope.cart=function(){
   $state.go('cart');
 }
 
- $scope.count=0;
+ // $rootScope.count=$rootScope.cartobject.length;
 
 });

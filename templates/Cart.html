@@ -1,29 +1,40 @@
-<div>
-  <div>
-    <md-toolbar class="md-hue-2" style="position: fixed;">
-      <div class="md-toolbar-tools">
-        <h2 flex md-truncate>CART</h2>
-        <md-button ng-click="shopping()" class="md-primary md-raised">
-          Continue Shopping
-        </md-button>
-      </div>
-    </md-toolbar>
-  </div>
-  <div class="" layout="row" layout-padding layout-wrap>
-    <md-card class="cart">
-      <md-content ng-repeat="data in cartobject " flex-xs layout="row">
-
-        <img ng-src={{data.image.small}} class="md-card-image" alt="Washed Out">
-        <span style="text-align:center;" class="md-headline">{{data.name}}</span>
-
-        <p class="details">
-          <h><strong>Price : </strong> {{data.price}}</h><br>
-          <h><strong>Storage : </strong>{{data.specs.storage}} GB</h><br>
-          <h><strong>os : </strong>{{data.specs.os}}</h><br>
-          <h><strong>camera : </strong>{{data.specs.camera}} MP</h><br>
-        </p>
-
-      </md-content>
-    </md-card>
-  </div>
+<div class="toolbarcart">
+  <md-toolbar class="md-hue-2" style="position: fixed;">
+    <div class="md-toolbar-tools">
+      <h2 flex md-truncate>CART</h2>
+      <md-button ng-click="shopping()" class="md-primary md-raised">
+        Continue Shopping
+      </md-button>
+    </div>
+  </md-toolbar>
+</div>
+<div class="cartboard">
+  <table>
+    <tr>
+      <th>product</th>
+      <th>Storage</th>
+      <th>os</th>
+      <th>camera</th>
+      <th>Price</th>
+      <th>Quantity</th>
+    </tr>
+    <tr ng-repeat="data in cartobject" flex-xs layout="row">
+      <td>
+        <div>
+          <md-card class="cart">
+            <img ng-src={{data.image.small}} class="cart-card-image" alt="Washed Out">
+          </md-card>
+        </div>
+      </td>
+      <td>
+        <div>{{data.specs.storage}}</div>
+      </td>
+      <td> {{data.specs.os}}</td>
+      <td> {{data.specs.camera}}</td>
+      <td> {{data.price}}</td>
+      <td><select ng-model="selectedQuantity" ng-init="selectedQuantity=1" ng-options="item for item in numbers"  ng-change="quantity(selectedQuantity,data)">
+</select></td>
+    </tr>
+    <td> TOTAL PRICE : $ {{total}}</td>
+  </table>
 </div>
