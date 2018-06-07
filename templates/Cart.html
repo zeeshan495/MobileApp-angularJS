@@ -9,6 +9,7 @@
   </md-toolbar>
 </div>
 <div class="cartboard">
+  <h2 id="demo1"></h2>
   <table>
     <tr>
       <th>product</th>
@@ -17,8 +18,9 @@
       <th>camera</th>
       <th>Price</th>
       <th>Quantity</th>
+      <th>REMOVE</th>
     </tr>
-    <tr ng-repeat="data in cartobject" flex-xs layout="row">
+    <tr ng-repeat="data in cartobject">
       <td>
         <div>
           <md-card class="cart">
@@ -26,15 +28,19 @@
           </md-card>
         </div>
       </td>
-      <td>
-        <div>{{data.specs.storage}}</div>
-      </td>
+      <td> {{data.specs.storage}} </td>
       <td> {{data.specs.os}}</td>
       <td> {{data.specs.camera}}</td>
       <td> {{data.price}}</td>
-      <td><select ng-model="selectedQuantity" ng-init="selectedQuantity=1" ng-options="item for item in numbers"  ng-change="quantity(selectedQuantity,data)">
+      <td><select ng-model="selectedQuantity" ng-init="selectedQuantity=1" ng-options="item for item in numbers" ng-change="quantity(selectedQuantity,data)">
 </select></td>
+      <td>
+        <md-button ng-click="remove(data)" class="md-primary md-raised">
+          REMOVE
+        </md-button>
+      </td>
     </tr>
-    <td> TOTAL PRICE : $ {{total}}</td>
+    <td> TOTAL PAYMENT : $ {{total}}</td>
   </table>
+
 </div>

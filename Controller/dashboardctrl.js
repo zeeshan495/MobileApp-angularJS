@@ -9,7 +9,6 @@ var dashCtrl = function($scope, $rootScope, $state, $http, $q, filterService) {
     var cartobject = filterService.readData();
     if (cartobject.length == 0) {
       cartobject.push(cartdata);
-
       var myJSON = JSON.stringify(cartobject);
       localStorage.setItem("testJSON", myJSON);
     } else {

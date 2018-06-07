@@ -1,8 +1,8 @@
-app.controller('homeCtrl', function($scope, $mdSidenav, $http, $mdDialog, $state,$rootScope) {
+app.controller('homeCtrl', function($scope, $mdSidenav, $http, $mdDialog, $state,$rootScope,$window) {
   console.log("inside homeCtrl");
-  text = localStorage.getItem("testJSON");
-  obj = JSON.parse(text);
-  console.log(obj);
+  // text = localStorage.getItem("testJSON");
+  // obj = JSON.parse(text);
+  // console.log(obj);
   $http.get("assets/products.json").then(function(response) {
     $scope.myData = response.data;
     $scope.manufacturerArray = [];
@@ -49,6 +49,7 @@ app.controller('homeCtrl', function($scope, $mdSidenav, $http, $mdDialog, $state
   }
   $scope.toggleright=function()
   {
+// $window.localStorage.clear();
     $state.go('login');
   }
   function DialogController($scope, item) {

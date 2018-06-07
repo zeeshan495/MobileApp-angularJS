@@ -28,6 +28,7 @@ app.service('filterService', function($rootScope) {
         var cartArr=localStorage.getItem("testJSON");
         $rootScope.arrayOfCart=JSON.parse(cartArr);
         // localStorage.setItem("cartArr length", arrayOfCart.length);
+
         return $rootScope.arrayOfCart;
       }
 
