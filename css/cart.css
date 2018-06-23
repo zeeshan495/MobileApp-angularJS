@@ -29,3 +29,8 @@ tr:hover {background-color:#ffe6e6;}
 .cart{
   width: 100px;
 }
+
+.msgEmpty{
+  margin-top: 65px;
+  position: absolute;
+}

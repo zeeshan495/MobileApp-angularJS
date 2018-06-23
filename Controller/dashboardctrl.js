@@ -1,10 +1,16 @@
-var dashCtrl = function($scope, $rootScope, $state, $http, $q, filterService) {
+app.controller('dashboardctrl', function($scope, $mdDialog, $rootScope, $state, $http, $q, filterService) {
   $rootScope.arrayOfCart = [];
 
   $http.get("assets/products.json").then(function(response) {
     $rootScope.myData = response.data;
   });
 
+  /**
+   * scope - description
+   *    addcart is a function to add a product in a cart
+   * @param  {type} cartdata description
+   * @return {type}          description
+   */
   $scope.addcart = function(cartdata) {
     var cartobject = filterService.readData();
     if (cartobject.length == 0) {
@@ -25,37 +31,30 @@ var dashCtrl = function($scope, $rootScope, $state, $http, $q, filterService) {
     $rootScope.count = cartobject.length;
   };
 
-};
-app.controller('dashboardctrl', dashCtrl);
+  /**
+   * scope - description
+   *descriptionFunc is to popup the description data
+   * @param  {type} ev   description
+   * @param  {type} data description
+   * @return {type}      description
+   */
+  $scope.descriptionFunc = function(ev, data) {
+    $mdDialog.show({
+      controller: DialogController,
+      templateUrl: 'templates/popup.html',
+      targetEvent: ev,
+      locals: {
+        item: data
+      },
+      clickOutsideToClose: true
+    });
+  }
 
-// function exe(a,b,cb) {
-//   cb(a,b);
-// }
-//
-// function exe(a,b,cb) {
-//   return new Promise(function(resolve, reject) {
-//     cb(a,b);
-//     resolve()
-//     // reject("request failed");
-//     // setTimeout(cb.bind(null,a,b),1000);
-//   });
-// }
-//
-// var sum = function (a,b) {
-//   console.log(a+b);
-// }
-//
-// function minus(a,b) {
-//   console.log(a-b);
-// }
-//
-// exe(1,2,sum).then(function () {
-// console.log("Zeeshan");
-// return Promise.resolve(" is MEAN developer")
-// }).then(function (data) {
-//   console.log("shivraj"+data);
-// }).catch(function (err) {
-//   console.log(err);
-// });
-//
-// exe(2,1,minus);
+  function DialogController($scope, item) {
+    $scope.item = item;
+    $scope.cancel = function() {
+      $mdDialog.cancel();
+    };
+  }
+
+});

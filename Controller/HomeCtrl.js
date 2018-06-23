@@ -1,8 +1,6 @@
-app.controller('homeCtrl', function($scope, $mdSidenav, $http, $mdDialog, $state,$rootScope,$window) {
+app.controller('homeCtrl', function($scope, $mdSidenav, $http, $state, $rootScope, $window,filterService) {
   console.log("inside homeCtrl");
-  // text = localStorage.getItem("testJSON");
-  // obj = JSON.parse(text);
-  // console.log(obj);
+
   $http.get("assets/products.json").then(function(response) {
     $scope.myData = response.data;
     $scope.manufacturerArray = [];
@@ -18,50 +16,35 @@ app.controller('homeCtrl', function($scope, $mdSidenav, $http, $mdDialog, $state
       }
       console.log(list);
     };
-
   });
 
-  $scope.showAdvanced = function(ev, data) {
-    $mdDialog.show({
-      controller: DialogController,
-      templateUrl: 'templates/popup.html',
-      targetEvent: ev,
-      locals: {
-        item: data
-      },
-      clickOutsideToClose: true
-    });
-  }
-
   $scope.toggleLeft = buildToggler('left');
+
   function buildToggler(componentId) {
     return function() {
-    $mdSidenav(componentId).toggle();
-    if ($scope.myobj==undefined) {
-      $scope.myobj={
-      "margin-left":"320px"
-    }
-    }
-    else {
-      $scope.myobj=undefined;
-    }
+      $mdSidenav(componentId).toggle();
+      if ($scope.myobj == undefined) {
+        $scope.myobj = {
+          "margin-left": "320px"
+        }
+      } else {
+        $scope.myobj = undefined;
+      }
     };
   }
-  $scope.toggleright=function()
-  {
-// $window.localStorage.clear();
+  $scope.toggleright = function() {
+    // $window.localStorage.clear();
     $state.go('login');
   }
-  function DialogController($scope, item) {
-    $scope.item = item;
-    $scope.cancel = function() {
-      $mdDialog.cancel();
-    };
-  }
-$scope.cart=function(){
-  $state.go('cart');
-}
 
- // $rootScope.count=$rootScope.cartobject.length;
+  $scope.cart = function() {
+      $rootScope.cartobject = filterService.readData();
+    if ($rootScope.cartobject.length!=undefined && $rootScope.cartobject.length == 0) {
+$state.go('emptyCart');
+    }else {
+    $state.go('cart');
+    }
+
+  }
 
 });

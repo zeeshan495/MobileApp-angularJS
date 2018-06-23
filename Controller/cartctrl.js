@@ -7,14 +7,7 @@ app.controller('cartctrl', function($scope, $state, $rootScope, $http, filterSer
   $scope.numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   $rootScope.cartobject = filterService.readData();
-  if ($rootScope.cartobject.length == 0) {
-    var msg = "Cart is empty";
-    document.getElementById("demo1").innerHTML = msg;
-  } else {
-    var msg = "";
-    document.getElementById("demo1").innerHTML = msg;
-  }
-  console.log("cartctrl cartobject: ", $rootScope.cartobject);
+
   for (var i = 0; i < cartobject.length; i++) {
     console.log("price", cartobject[i].price);
     $scope.total = $scope.total + cartobject[i].price;

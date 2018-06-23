@@ -16,6 +16,11 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRo
     url : '/cart',
     templateUrl : 'templates/Cart.html',
      controller : 'cartctrl'
+  })
+  .state('emptyCart',{
+    url : '/cart',
+    templateUrl : 'templates/emptyCart.html',
+     controller : 'emptyCartctrl'
   });
   $urlRouterProvider.otherwise('/login');
 }]);
